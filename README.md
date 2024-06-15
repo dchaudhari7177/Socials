@@ -1,1 +1,3 @@
 # Working on it...
+
+An Application which will give all the socials information like current ongoing news, live cricket scores, live weather data, etc
