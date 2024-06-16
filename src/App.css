@@ -1,1 +1,21 @@
-
+body {
+    padding-top: 70px; 
+  }
+  
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .navbar.dark-mode {
+    background-color: #333333;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+  }
+  
+  .navbar-dark .navbar-brand {
+    color: #ffffff;
+  }
+  
