@@ -4,18 +4,26 @@ import Home from './components/Home';
 import Weather from './components/Weather';
 import News from './components/News';
 import LiveCricketScore from './components/LiveCricketScore';
+import Navbar from './components/Navbar';
+import Jokes from './components/Jokes';
+import TicTacToe from './components/TicTacToe';
+import './App.css';
 
 const App = () => {
   return (
     <Router>
-      <div>
+      <Navbar />
+      <div className="main-content">
+     
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/weather" element={<Weather />} />
           <Route path="/news" element={<News />} />
           <Route path="/live-cricket-score" element={<LiveCricketScore />} />
+          <Route path="/jokes" element={<Jokes />} />
+          <Route path="/tic-tac-toe" element={<TicTacToe />} />
         </Routes>
-      </div>
+        </div>
     </Router>
   );
 };
