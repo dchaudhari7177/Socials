@@ -5,51 +5,49 @@ import './LiveCricketScore.css';
 const LiveCricketScore = () => {
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const apiKey = '7ae7143f-8945-4661-a538-2f9f202540e1'; 
+
+  const fetchLiveScores = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get('https://api.cricapi.com/v1/currentMatches?apikey=7ae7143f-8945-4661-a538-2f9f202540e1&offset=0');
+      setMatches(response.data.data);
+    } catch (error) {
+      console.error('Error fetching live scores:', error);
+    }
+    setLoading(false);
+  };
 
   useEffect(() => {
-    const fetchLiveCricketScores = async () => { 
-      try { 
-        const response = await axios.get(`https://api.cricapi.com/v1/currentMatches?apikey=${apiKey}`);
-        console.log(response.data); 
-        if (response.data && response.data.data) {
-          setMatches(response.data.data);
-        } else {
-          setError('No match data available');
-        }
-      } catch (error) {
-        console.error('Error fetching cricket scores:', error); 
-        setError('Failed to fetch live cricket scores.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchLiveCricketScores();
-  }, [apiKey]);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+    fetchLiveScores();
+  }, []);
 
   return (
-    <div className="live-cricket-score-container">
-      <h2>Live Cricket Scores</h2>
-      <div className="matches-container">
-        {matches.map((match, index) => (
-          <div key={index} className="match-card">
-            <h3>{match?.name ?? 'Match Name Unavailable'}</h3>
-            <p>{match?.status ?? 'Status Unavailable'}</p>
-            <p>{match?.teams?.a?.name ?? 'Team A'} vs {match?.teams?.b?.name ?? 'Team B'}</p>
-            {match?.score?.full ? (
-              <p>Score: {match.score.full}</p>
-            ) : (
-              <p>Score: Not available</p>
-            )}
-            <p>Overs: {match?.overs ?? 'Overs Unavailable'}</p>
-          </div>
-        ))}
-      </div>
+    <div className="live-cricket-container">
+      <h1 className="live-cricket-title">Live Cricket Scores</h1>
+      {loading ? (
+        <div className="loading">Loading...</div>
+      ) : (
+        <div className="live-cricket-list">
+          {matches.length > 0 ? (
+            matches.map((match) => (
+              <div key={match.id} className="match-card">
+                <h2>{match.name}</h2>
+                {match.status && <p>Status: {match.status}</p>}
+                {match.score && match.score.map((score, index) => (
+                  <div key={index} className="score-details">
+                    <p>Inning: {score.inning}</p>
+                    <p>Runs: {score.r}</p>
+                    <p>Wickets: {score.w}</p>
+                    <p>Overs: {score.o}</p>
+                  </div>
+                ))}
+              </div>
+            ))
+          ) : (
+            <p>No live matches available.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };

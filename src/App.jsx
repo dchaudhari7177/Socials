@@ -7,6 +7,7 @@ import LiveCricketScore from './components/LiveCricketScore';
 import Navbar from './components/Navbar';
 import Jokes from './components/Jokes';
 import TicTacToe from './components/TicTacToe';
+import Footer from './components/Footer';
 import './App.css';
 
 const App = () => {
@@ -24,7 +25,9 @@ const App = () => {
           <Route path="/tic-tac-toe" element={<TicTacToe />} />
         </Routes>
         </div>
+        <Footer/>
     </Router>
+    
   );
 };
 

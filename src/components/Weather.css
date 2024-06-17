@@ -1,23 +1,44 @@
+.weather-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .weather-container {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .weather-card {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: #000; 
-    margin-bottom: 20px;
-  }
-  
-  .weather-card h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .weather-card p {
-    margin-bottom: 10px;
-  }
-  
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  background-color: #faded8; 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; 
+}
+
+.city-input {
+  padding: 10px;
+  margin-right: 10px;
+  width: 200px;
+}
+
+.fetch-weather-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fetch-weather-btn:hover {
+  background-color: #0056b3;
+}
+
+.weather-info {
+  margin-top: 20px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+

@@ -1,46 +1,73 @@
 .news-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .news-card {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .news-card h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .news-card p {
-    margin-bottom: 15px;
-  }
-  
-  .news-card a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .news-card a:hover {
-    text-decoration: underline;
-  }
-  
-  .load-more-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .load-more-btn:hover {
-    background-color: #0056b3;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffa07a; 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  min-height: 80vh; 
+}
+
+.news-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.news-card {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.news-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.news-description {
+  color: #666;
+}
+
+.read-more-link {
+  display: block;
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.read-more-link:hover {
+  text-decoration: underline;
+}
+
+.load-more-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.load-more-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-btn:hover {
+  background-color: #0056b3;
+}
+
+.no-news {
+  text-align: center;
+  font-style: italic;
+  color: #999;
+}

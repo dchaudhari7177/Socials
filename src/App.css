@@ -1,6 +1,5 @@
-/* src/App.css */
 body {
-    padding-top: 70px; /* Adjust this value to the height of your navbar */
+    padding-top: 70px; 
   }
   
   body.dark-mode {
